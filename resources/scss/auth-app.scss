@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.auth-app {
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    min-height: 100vh;
+
+    &-main {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .modal {
+        &-enter {
+            opacity: 0;
+        }
+        &-enter-active {
+            transition: opacity 200ms ease-out;
+        }
+        &-enter-to {
+            opacity: 1;
+        }
+        &-leave {
+            opacity: 1;
+        }
+        &-leave-active {
+            transition: opacity 200ms ease-in;
+        }
+        &-leave-to {
+            opacity: 0;
+        }
+    }
+
+    @media (max-width: 768px) {
+        &-main {
+            padding: 15px;
+        }
+    }
+}

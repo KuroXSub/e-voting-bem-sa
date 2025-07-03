@@ -1,0 +1,439 @@
+// resources/scss/election.scss
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.election-container {
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    padding: 1rem;
+
+    @media (min-width: 768px) {
+        padding: 2rem;
+    }
+}
+
+.election-main-card {
+    background-color: #F9F9F9;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    @media (min-width: 768px) {
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+.election-header {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h2 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 1rem;
+
+        @media (min-width: 768px) {
+            font-size: 2.25rem;
+        }
+    }
+
+    .election-period {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+
+        @media (min-width: 768px) {
+            font-size: 1.25rem;
+        }
+    }
+}
+
+.candidates-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @media (min-width: 640px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.dashboard-btn {
+    background-color: #7476FF;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    margin-top: 2rem;
+
+    &:hover {
+        background-color: darken(#7476FF, 10%);
+    }
+}
+
+.candidate-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+
+    .candidate-photo {
+        width: 100%;
+        height: 250px;
+        background-color: #f5f5f5;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .candidate-info {
+        padding: 1.5rem;
+        text-align: center;
+
+        .candidate-number {
+            display: inline-block;
+            background-color: #0061A1;
+            color: white;
+            font-weight: 600;
+            padding: 0.25rem 1rem;
+            border-radius: 1rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+
+            @media (min-width: 768px) {
+                font-size: 1rem;
+            }
+        }
+
+        .candidate-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.25rem;
+
+            @media (min-width: 768px) {
+                font-size: 1.25rem;
+            }
+        }
+
+        .candidate-position {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+
+            @media (min-width: 768px) {
+                font-size: 1rem;
+            }
+        }
+
+        .candidate-vision {
+            font-size: 0.875rem;
+            color: #555;
+            margin: 1rem 0;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .candidate-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1rem;
+
+            .detail-btn {
+                background-color: #7476FF;
+                color: white;
+                border: none;
+                border-radius: 0.5rem;
+                padding: 0.5rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: background-color 0.2s;
+                width: 100%;
+
+                &:hover {
+                    background-color: darken(#7476FF, 10%);
+                }
+            }
+
+            .vote-btn {
+                background-color: #00FF2F;
+                color: white;
+                border: none;
+                border-radius: 0.5rem;
+                padding: 0.5rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: background-color 0.2s;
+                width: 100%;
+
+                &:hover {
+                    background-color: darken(#00FF2F, 10%);
+                }
+            }
+        }
+    }
+}
+
+// Modal Styles
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modal-container {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+
+    .modal-content {
+        padding: 1.5rem;
+
+        @media (min-width: 768px) {
+            padding: 2rem;
+        }
+    }
+
+    .modal-header {
+        text-align: center;
+        margin-bottom: 1.5rem;
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .modal-body {
+        .candidate-photo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1.5rem;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            background-color: #f5f5f5;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .candidate-info {
+            text-align: center;
+            margin-bottom: 1.5rem;
+
+            .candidate-number {
+                display: inline-block;
+                background-color: #0061A1;
+                color: white;
+                font-weight: 600;
+                padding: 0.25rem 1rem;
+                border-radius: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .candidate-name {
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: #333;
+                margin-bottom: 0.25rem;
+            }
+
+            .candidate-position {
+                font-size: 1rem;
+                color: #666;
+                margin-bottom: 0.5rem;
+            }
+
+            .candidate-vision-mission {
+                text-align: left;
+                margin-top: 1.5rem;
+
+                h4 {
+                    font-size: 1.125rem;
+                    font-weight: 600;
+                    color: #333;
+                    margin-bottom: 0.5rem;
+                }
+
+                p {
+                    font-size: 0.875rem;
+                    color: #555;
+                    line-height: 1.6;
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+
+    .modal-footer {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+
+        .vote-btn {
+            background-color: #00FF2F;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            width: 100%;
+
+            &:hover {
+                background-color: darken(#00FF2F, 10%);
+            }
+        }
+
+        .back-btn {
+            background-color: white;
+            color: #333;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            width: 100%;
+
+            &:hover {
+                background-color: #f5f5f5;
+            }
+        }
+    }
+}
+
+// Image Modal
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1100;
+    padding: 1rem;
+
+    .image-modal-content {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+        text-align: center;
+
+        img {
+            max-width: 90vw;
+            max-height: 70vh;
+            margin-bottom: 1.5rem;
+        }
+
+        .close-btn {
+            position: static;
+            display: block;
+            margin: 0 auto;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            line-height: 1;
+        }
+    }
+}
+
+// Thank You Modal
+.thank-you-modal {
+    .modal-body {
+        text-align: center;
+        padding: 2rem;
+
+        .thank-you-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            background-image: url('/images/tick.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .thank-you-message {
+            font-size: 1.25rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .close-btn {
+            background-color: #7476FF;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+
+            &:hover {
+                background-color: darken(#7476FF, 10%);
+            }
+        }
+    }
+}

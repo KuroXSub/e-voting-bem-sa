@@ -1,0 +1,444 @@
+// resources/scss/dashboard.scss
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.dashboard-container {
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+
+    @media (min-width: 768px) {
+        padding: 2rem;
+    }
+}
+
+.main-card {
+    background-color: #F9F9F9;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    @media (min-width: 768px) {
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+// Card 1 - Welcome Card
+.welcome-card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    @media (min-width: 512px) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+    }
+
+    .welcome-left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+
+        @media (min-width: 768px) {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 439px) {
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+        }
+
+        .profile-icon {
+            width: 50px;
+            height: 50px;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+
+            svg {
+                width: 60%;
+                height: 60%;
+                min-width: 20px;
+                min-height: 20px;
+                color: #555;
+            }
+
+            @media (max-width: 439px) {
+                display: none; // Hilangkan ikon di layar sangat kecil
+            }
+        }
+
+        .welcome-text {
+            h2 {
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: #333;
+                margin: 0;
+
+                @media (min-width: 768px) {
+                    font-size: 1.5rem;
+                }
+            }
+
+            p {
+                font-size: 0.875rem;
+                color: #666;
+                margin: 0.25rem 0 0;
+
+                @media (min-width: 768px) {
+                    font-size: 1rem;
+                }
+
+                @media (max-width: 439px) {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .welcome-right {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        @media (min-width: 512px) and (max-width: 767px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; // Memastikan tombol sejajar di kanan teks
+            align-items: stretch;
+            width: 30%;
+        }
+
+        @media (max-width: 511px) {
+            flex-direction: column;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        .logout-btn, .home-btn {
+            background-color: #FF0000;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: inline-block;
+            text-align: center;
+            white-space: nowrap; // Pastikan tombol tetap satu baris
+            width: 100%; // Memastikan tombol memenuhi ruang dalam kondisi layar kecil
+
+            &:hover {
+                background-color: darken(#FF0000, 10%);
+            }
+
+            @media (min-width: 768px) {
+                padding: 0.75rem 1.5rem;
+            }
+        }
+
+        .home-btn {
+            background-color: #7476FF;
+
+            &:hover {
+                background-color: darken(#7476FF, 10%);
+            }
+        }
+
+        form.logout-btn {
+            width: 100%;
+            text-align: center;
+            display: flex;
+        }
+    }
+}
+
+// Card 2 - Election Status Card
+.election-status-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    @media (min-width: 768px) {
+        padding: 2rem;
+    }
+
+    .election-status-content {
+        text-align: center;
+
+        .status-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #333;
+
+            @media (min-width: 768px) {
+                font-size: 2rem;
+            }
+        }
+
+        .status-message {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1rem;
+
+            @media (min-width: 768px) {
+                font-size: 1.25rem;
+            }
+        }
+
+        .period-dates {
+            font-size: 0.875rem;
+            color: #888;
+            margin-bottom: 1.5rem;
+
+            @media (min-width: 768px) {
+                font-size: 1rem;
+            }
+
+            @media (max-width: 440px) {
+                display: flex;
+                flex-direction: column; // Membuat tanggal menjadi tiga baris
+                align-items: center;
+            }
+        }
+
+        .election-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #333;
+            margin-top: 1rem;
+
+            @media (min-width: 768px) {
+                font-size: 1.5rem;
+            }
+        }
+
+        .view-election-btn {
+            background-color: #7476FF;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: background-color 0.2s;
+
+            &:hover {
+                background-color: darken(#7476FF, 10%);
+            }
+
+            @media (min-width: 768px) {
+                padding: 0.75rem 1.5rem;
+            }
+        }
+    }
+}
+
+// Cards 3 & 4 - Quick Access Cards
+.quick-access-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @media (min-width: 992px) {
+        flex-direction: row;
+    }
+}
+
+.quick-access-card {
+    flex: 1;
+    background-color: white;
+    border-radius: 0.75rem;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+    }
+
+    .card-left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            aspect-ratio: 1 / 1;
+            border-radius: 0.5rem;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+
+            svg {
+                width: 60%;
+                height: 60%;
+                min-width: 20px;
+                min-height: 20px;
+                color: #555;
+            }
+
+            @media (max-width: 439px) {
+                display: none; // Hilangkan ikon di layar sangat kecil
+            }
+        }
+
+        .card-text {
+            h3 {
+                font-size: 1.125rem;
+                font-weight: 600;
+                color: #333;
+                margin: 0;
+
+                @media (min-width: 768px) {
+                    font-size: 1.25rem;
+                }
+            }
+
+            p {
+                font-size: 0.875rem;
+                color: #666;
+                margin: 0.25rem 0 0;
+
+                @media (min-width: 768px) {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
+    .access-btn {
+        background-color: #7476FF;
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+
+        &:hover {
+            background-color: darken(#7476FF, 10%);
+        }
+
+        @media (min-width: 768px) {
+            padding: 0.75rem 1.5rem;
+        }
+
+        @media (min-width: 512px) and (max-width: 767px) {
+            width: 30%;
+        }
+    }
+}
+
+// Modal Styles
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-container {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 500px;
+    padding: 1.5rem;
+    position: relative;
+
+    @media (min-width: 768px) {
+        padding: 2rem;
+    }
+
+    .modal-header {
+        text-align: center;
+        margin-bottom: 1.5rem;
+
+        .modal-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-message {
+            font-size: 1rem;
+            color: #666;
+        }
+    }
+
+    .modal-footer {
+        display: flex;
+        justify-content: center;
+        margin-top: 1.5rem;
+
+        .modal-btn {
+            background-color: #7476FF;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+
+            &:hover {
+                background-color: darken(#7476FF, 10%);
+            }
+        }
+    }
+}

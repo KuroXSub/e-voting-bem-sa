@@ -1,0 +1,39 @@
+/* Warna kustom untuk berbagai komponen */
+.bg-election-500 {
+    background-color: var(--colors-election-500);
+}
+
+.text-election-500 {
+    color: var(--colors-election-500);
+}
+
+.bg-candidate-500 {
+    background-color: var(--colors-candidate-500);
+}
+
+.text-candidate-500 {
+    color: var(--colors-candidate-500);
+}
+
+.bg-vote-500 {
+    background-color: var(--colors-vote-500);
+}
+
+.text-vote-500 {
+    color: var(--colors-vote-500);
+}
+
+/* Animasi untuk toggle aktif */
+.fi-ta-toggle-action:checked {
+    background-color: var(--colors-success-500);
+}
+
+/* Style untuk navigation */
+.fi-sidebar-nav-item .fi-sidebar-item-label {
+    font-weight: 500;
+}
+
+.fi-sidebar-group div:first-child {
+    color: var(--colors-election-700);
+    font-weight: 600;
+}

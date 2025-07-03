@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.nav-container {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    .nav-logo {
+        color: #0061A1;
+        font-size: 1.5rem;
+        padding-left: 1rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: opacity 0.2s;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.nav-right {
+    display: none;
+    align-items: center;
+    gap: 1.5rem;
+    padding-right: 1rem;
+
+    @media (min-width: 992px) {
+        display: flex;
+    }
+}
+
+.nav-link {
+    color: #0061A1;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+
+    &:hover, &.active {
+        background-color: #97F4FF;
+    }
+}
+
+.nav-spacer {
+    width: 2rem;
+}
+
+.nav-login {
+    background-color: #7476FF;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.2s;
+
+    &:hover {
+        background-color: darken(#7476FF, 10%);
+    }
+}
+
+/* Mobile Menu Styles */
+.mobile-menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding-right: 1rem;
+    display: block;
+
+    @media (min-width: 992px) {
+        display: none;
+    }
+}
+
+.mobile-menu-button svg {
+    width: 32px;
+    height: 32px;
+    stroke: #0061A1;
+}
+
+.mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+
+    &.open {
+        max-height: 400px; // nilai ini cukup besar untuk menampung seluruh isi
+        padding: 1rem 0;
+    }
+}
+
+/* Update font-size for mobile links */
+.mobile-nav-link {
+    color: #0061A1;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    transition: all 0.2s;
+
+    &:hover, &.active {
+        background-color: #97F4FF;
+    }
+}
+
+.mobile-nav-login {
+    background-color: #7476FF;
+    color: white;
+    font-size: 1rem; // Dulu 0.5rem
+    font-weight: 600;
+    padding: 1rem 2rem;
+    margin: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    text-align: center;
+
+    &:hover {
+        background-color: darken(#7476FF, 10%);
+    }
+}
