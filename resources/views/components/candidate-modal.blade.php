@@ -3,9 +3,9 @@
         <!-- Candidate Photo -->
         <div class="relative bg-gray-200 h-64">
             @if($candidate->photo_url)
-                <img src="{{ asset($candidate->photo_url) }}" alt="Foto Kandidat" 
+                <img src="{{ Storage::disk('s3')->url($candidate->photo_url) }}" alt="Foto Kandidat" 
                     class="object-contain w-full h-full cursor-pointer" 
-                    onclick="openImageModal('{{ asset($candidate->photo_url) }}')">
+                    onclick="openImageModal('{{ Storage::disk('s3')->url($candidate->photo_url) }}')">
             @else
                 <div class="flex items-center justify-center w-full h-full bg-gray-300">
                     <span class="text-gray-500">No Photo</span>

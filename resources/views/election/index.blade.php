@@ -36,8 +36,8 @@
                         @foreach($candidates->sortBy('number') as $candidate)
                             <div class="candidate-card">
                                 <div class="candidate-photo">
-                                    @if($candidate->photo_path)
-                                        <img src="{{ $candidate->photo_path }}" alt="Foto Kandidat">
+                                    @if($candidate->photo_url)
+                                        <img src="{{ Storage::disk('s3')->url($candidate->photo_url) }}" alt="Foto Kandidat">
                                     @else
                                         <div class="w-full h-full flex items-center justify-center text-gray-500">
                                             Tidak Ada Foto

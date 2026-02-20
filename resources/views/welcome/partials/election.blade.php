@@ -12,7 +12,7 @@
             <div class="candidate-card">
                 <div class="candidate-photo">
                     @if($candidate->photo_url)
-                        <img src="{{ asset('storage/' . $candidate->photo_url) }}" alt="Foto Kandidat">
+                        <img src="{{ Storage::disk('s3')->url($candidate->photo_url) }}" alt="Foto Kandidat">
                     @else
                         <span class="text-gray-500">Tidak Ada Foto</span>
                     @endif
