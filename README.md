@@ -40,12 +40,11 @@ Proyek ini dibangun menggunakan **Laravel** dan panel admin modern **Filament v3
 
 ## 🧑‍💻 Teknologi yang Digunakan
 
-- ⚙️ **Framework Backend:** Laravel  
+- ⚙️ **Framework Backend:** Laravel 12 
 - ⚙️ **Admin Panel:** Filament v3  
-- ⚙️ **Database:** MySQL / PostgreSQL  
-- ⚙️ **UI Interaktif:** Livewire & Volt  
-- ⚙️ **Styling:** Tailwind CSS & SCSS  
-- ⚙️ **Development Tool:** Vite  
+- ⚙️ **Database:** MySQL 3.0.3
+- ⚙️ **NPM:** Node.js 18  
+- ⚙️ **Styling:** SCSS  
 - ⚙️ **Otentikasi:** Laravel Auth  
 
 ---
@@ -139,7 +138,4 @@ Proyek ini dibangun menggunakan **Laravel** dan panel admin modern **Filament v3
 - Setelah diverifikasi, login untuk mengakses dashboard.
 - Jika periode pemilihan aktif dan belum memilih, akses halaman pemilihan untuk memberikan suara.
 
----
-
-**Lisensi dan Kontribusi:**  
-Silakan ajukan *issue* atau *pull request* jika ingin berkontribusi atau melaporkan masalah.  
+--- 
