@@ -9,6 +9,7 @@ use App\Models\ElectionPeriod;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -38,10 +39,10 @@ class CandidateResource extends Resource
                         Forms\Components\Select::make('election_period_id')
                             ->label('Periode Pemilihan')
                             ->options(
-                                ElectionPeriod::query()
-                                    ->where('is_active', true)
-                                    ->pluck('name', 'id')
-                            )
+                                    ElectionPeriod::query()
+                                        ->where('status', 'Belum dimulai') // Mengubah filter ke kolom status
+                                        ->pluck('name', 'id')
+                                )
                             ->required()
                             ->native(false)
                             ->searchable(),
@@ -106,7 +107,7 @@ class CandidateResource extends Resource
                         Forms\Components\FileUpload::make('photo_url')
                             ->label('Foto Pasangan')
                             ->image()
-                            ->directory('candidates')
+                            ->disk('s3')
                             ->maxSize(2048)
                             ->downloadable()
                             ->openable()
@@ -132,10 +133,10 @@ class CandidateResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('photo_url')
-                    ->label('Foto')
-                    ->circular()
-                    ->defaultImageUrl(fn ($record) => 'https://ui-avatars.com/api/?name='.'&background=random'),
+                // Tables\Columns\ImageColumn::make('photo_url')
+                //     ->label('Foto')
+                //     ->circular()
+                //     ->defaultImageUrl(fn ($record) => 'https://ui-avatars.com/api/?name='.'&background=random'),
 
                 Tables\Columns\TextColumn::make('number')
                     ->label('No. Urut')
@@ -187,7 +188,7 @@ class CandidateResource extends Resource
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make()
                     ->before(function ($record) {
-                        Storage::delete($record->photo_url);
+                        Storage::disk('s3')->delete($record->photo_url);
                     }),
             ])
             ->bulkActions([
